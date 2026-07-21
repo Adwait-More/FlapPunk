@@ -17,17 +17,20 @@ public class PlayerMovement : MonoBehaviour
    int TouchCount = 0;
     bool GoingUp;
     bool GoingDown;
-
-
-
-
+    private AudioManager audioManager;
+    private GameManager gameManager;
+    private UiManager uiManager;
+    
 
     void Start()
     {
         Application.targetFrameRate = 120;
           
-        Time.timeScale = 0;
+        
         t = GetComponent<Transform>();
+        gameManager = FindAnyObjectByType<GameManager>();
+        uiManager = FindAnyObjectByType<UiManager>();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
 
@@ -64,13 +67,13 @@ public class PlayerMovement : MonoBehaviour
 
         void GoUp()
         {
-            FindObjectOfType<AudioManager>().PlayJumpSound();
+          audioManager.PlayJumpSound();
             CurrentSpeed = StartingSpeed;
            
         }
         if(transform.position.y > 5f || transform.position.y < -5f)
     {
-            FindAnyObjectByType<GameManager>().RestartLVl();
+            gameManager.RestartLVl();
         }
     }
    

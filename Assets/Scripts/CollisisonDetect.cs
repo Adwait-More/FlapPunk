@@ -7,6 +7,16 @@ public class CollisisonDetect : MonoBehaviour
 {
     public int Score = 0;
     public Animator MyAnim;
+    private GameManager gameManager;
+    private UiManager uiManager;
+    private AudioManager audioManager;
+    private void Start()
+    {
+        MyAnim = FindObjectOfType<Animator>();
+        gameManager = FindObjectOfType<GameManager>();
+        uiManager = FindObjectOfType<UiManager>();
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,13 +25,13 @@ public class CollisisonDetect : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pipe"))
         {
-            FindObjectOfType<AudioManager>().PlayCollisionSound();
+            audioManager.PlayCollisionSound();
             var _Pipes = FindObjectsOfType<PipeMovement>();
             foreach(var pipe in _Pipes)
             {
                 pipe.DisableMovement();
             }
-            FindObjectOfType<GameManager>().RestartLVl();
+            gameManager.RestartLVl();
             Debug.Log("Game Over");
             MyAnim.SetTrigger("Collided");
 
@@ -32,10 +42,10 @@ public class CollisisonDetect : MonoBehaviour
         else if(collision.gameObject.CompareTag("ScoreCollider"))
         {
             Score++;
-            FindObjectOfType<AudioManager>().PlayPointSound();
+            audioManager.PlayPointSound();
             Debug.Log("Score: " + Score);
            
-            FindObjectOfType<UiManager>().UpdateScore();
+            uiManager.UpdateScore();
         }
     }
 

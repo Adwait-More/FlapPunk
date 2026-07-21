@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     {
        Invoke("InvRestartLvl", 0.5f);
     }
-    public void NextLevel1()
+    public void NextLevel_delay()
     {
          Invoke("NextLevel", 0.5f);
     }
@@ -24,5 +24,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("Next Level");
     }
-
+    public void PreviousLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Debug.Log("Previous Level");
+    }
 }

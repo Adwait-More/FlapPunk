@@ -7,15 +7,16 @@ public class PipeMovement : MonoBehaviour
     float Pos;
     Transform PipeTransform;
     public float PipeSpeed = 2f;
-    [SerializeField] float RespawnXPosition = 10f;
+    [SerializeField] float RespawnXPosition;
 
-
+    private Camera cam;
 
     void Start()
     {
         PipeTransform=transform;
-
+        cam=Camera.main;
         Pos = FindAnyObjectByType<PipeSpawnner>().LastPipeX;
+        RespawnXPosition = cam.ViewportToWorldPoint(new Vector3(0, 0, 0)).x - 1f;
     }
 
     // Update is called once per frame
