@@ -4,37 +4,42 @@ using UnityEngine.UI;
 
 public class PipeSpawnner : MonoBehaviour
 {
-    public float UpperLimit = 3.53f;
-    public float LowerLimit = -3.19f;
-    public int SpawnSize;
-    public float LastPipeX;
 
+    public float UpperLimit = 3.53f, LowerLimit = -3.19f, LastPipeX;
 
-    List<GameObject> Pipes = new List<GameObject>();
+    public int SpawnSize, PipeDistance = 5;
+    private Camera cam;
+
+    public float spawnpos;
+    [SerializeField]
+    public List<GameObject> Pipes = new List<GameObject>();
     public GameObject PipePrefab;
 
-    List<GameObject> PipeList = new List<GameObject>();
-    int i;
-
+    public List<GameObject> PipeList = new List<GameObject>();
+   
+    public int pipeIndex;
 
     // Start is called before the first frame update
     void Start()
-    {
-
-        for (i = 0; i < SpawnSize; i++)
+    { 
+        pipeIndex=SpawnSize- 1;
+        cam = Camera.main;
+        spawnpos = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - 1f;
+        for (int i = 0; i < SpawnSize; i++)
         {
 
             Pipes.Add(PipePrefab);
-            GameObject Pipe = Instantiate(PipePrefab, new Vector3(5 + i * 5, Random.Range(LowerLimit, UpperLimit), 0), Quaternion.identity);
+            GameObject Pipe = Instantiate(PipePrefab, new Vector3( spawnpos + i*PipeDistance +  PipeDistance, Random.Range(LowerLimit, UpperLimit), 0), Quaternion.identity); 
             Pipe.SetActive(true);
             PipeList.Add(Pipe);
-
+            
 
         }
-        LastPipeX = PipeList[^1].transform.position.x;
+        
 
 
 
     }
+    
 
 } 
