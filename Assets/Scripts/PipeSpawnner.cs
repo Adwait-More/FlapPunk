@@ -18,13 +18,13 @@ public class PipeSpawnner : MonoBehaviour
     public List<GameObject> PipeList = new List<GameObject>();
    
     public int pipeIndex;
-
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     { 
         pipeIndex=SpawnSize- 1;
         cam = Camera.main;
-        spawnpos = cam.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - 1f;
+        spawnpos = player.transform.position.x;
         for (int i = 0; i < SpawnSize; i++)
         {
 
