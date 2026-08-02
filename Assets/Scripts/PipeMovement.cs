@@ -16,6 +16,7 @@ public class PipeMovement : MonoBehaviour
     private PipeSpawnner spawnner;
     void Start()
     {
+        
         spawnner = FindAnyObjectByType<PipeSpawnner>();
         cam = Camera.main;   
         PipeTransform =transform;

@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private AudioManager audioManager;
     private GameManager gameManager;
     private UiManager uiManager;
-    
+    private PlayerAnimations PlayerAnim;
 
     void Start()
     {
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         gameManager = FindAnyObjectByType<GameManager>();
         uiManager = FindAnyObjectByType<UiManager>();
         audioManager = FindAnyObjectByType<AudioManager>();
+        PlayerAnim=FindAnyObjectByType<PlayerAnimations>();
     }
 
 
@@ -65,18 +66,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        void GoUp()
-        {
-          audioManager.PlayJumpSound();
-            CurrentSpeed = StartingSpeed;
-           
-        }
+
         if(transform.position.y > 5f || transform.position.y < -5f)
     {
             gameManager.RestartLVl();
         }
     }
-   
+   public void GoUp()
+    {
+        audioManager.PlayJumpSound();
+        CurrentSpeed = StartingSpeed;
+        PlayerAnim.SetTrigger();
+    }
 
 }
 

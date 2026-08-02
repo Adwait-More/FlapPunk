@@ -12,7 +12,7 @@ public class CollisisonDetect : MonoBehaviour
     private AudioManager audioManager;
     private void Start()
     {
-        MyAnim = FindObjectOfType<Animator>();
+     
         gameManager = FindObjectOfType<GameManager>();
         uiManager = FindObjectOfType<UiManager>();
         audioManager = FindObjectOfType<AudioManager>();
