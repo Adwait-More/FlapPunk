@@ -26,12 +26,8 @@ public class CollisisonDetect : MonoBehaviour
         if(collision.gameObject.CompareTag("Pipe"))
         {
             audioManager.PlayCollisionSound();
-            var _Pipes = FindObjectsOfType<PipeMovement>();
-            foreach(var pipe in _Pipes)
-            {
-                pipe.DisableMovement();
-            }
             gameManager.RestartLVl();
+            gameManager.GameOver();
             Debug.Log("Game Over");
             MyAnim.SetTrigger("Collided");
 

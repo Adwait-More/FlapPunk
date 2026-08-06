@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -28,5 +29,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         Debug.Log("Previous Level");
+    }
+
+    public void GameOver()
+    {
+        PipeSpawnner spawnner = FindAnyObjectByType<PipeSpawnner>();
+        if (spawnner != null)
+        {
+            spawnner.DisablePipeMovement();
+        }
+        RestartLVl();
     }
 }
