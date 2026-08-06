@@ -205,7 +205,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.73, y: 0.23, z: 7.5}
-  m_LocalScale: {x: 22.668667, y: 12.356311, z: 1}
+  m_LocalScale: {x: 22, y: 11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 245630004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.031, y: -0.266, z: 0}
+  m_LocalPosition: {x: 0.0313, y: -0.238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -731,19 +731,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.2D.PixelPerfect::UnityEngine.U2D.PixelPerfectCamera
   m_AssetsPPU: 32
   m_RefResolutionX: 180
-  m_RefResolutionY: 180
-  m_UpscaleRT: 1
+  m_RefResolutionY: 320
+  m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
-  m_StretchFill: 0
+  m_StretchFill: 1
 --- !u!1 &673650436
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +822,6 @@ GameObject:
   m_Component:
   - component: {fileID: 990856235}
   - component: {fileID: 990856237}
-  - component: {fileID: 990856236}
   m_Layer: 0
   m_Name: PlayerRender
   m_TagString: Untagged
@@ -846,19 +845,6 @@ Transform:
   - {fileID: 245630005}
   m_Father: {fileID: 993751324}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &990856236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 990856234}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d582f90088f7ce4da041eb6e89e1949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationMultiplier: 0
 --- !u!212 &990856237
 SpriteRenderer:
   serializedVersion: 3
@@ -968,6 +954,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 990856235}
+  - {fileID: 1970322619}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &993751325
@@ -1031,7 +1018,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.06, y: 0}
+  m_Offset: {x: 0, y: 0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1041,8 +1028,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.25, y: 0.24}
-  m_EdgeRadius: 0.29
+  m_Size: {x: 0.75, y: 0.73}
+  m_EdgeRadius: 0.07
 --- !u!114 &993751327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,10 +1112,10 @@ Canvas:
   m_GameObject: {fileID: 1708819639}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1218,6 +1205,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758238589}
   m_CullTransparentMesh: 1
+--- !u!1 &1970322618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970322619}
+  - component: {fileID: 1970322620}
+  m_Layer: 0
+  m_Name: PlayerAnimManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970322619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970322618}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 993751324}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970322620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970322618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a160fbc6c27f71343b9a69f67dfd5e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ThrustAnim: {fileID: 245630007}
 --- !u!1 &1990137770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8030749164456062748, guid: 13afd0d9ce2f8104b897e1a2f9a04663, type: 3}

@@ -1,19 +1,17 @@
 
-using System.Net.NetworkInformation;
+
 using UnityEngine;
 
 public class PipeMovement : MonoBehaviour
 {
-    float Pos;
-    Transform PipeTransform;
-    public float PipeSpeed = 2f;
-    [SerializeField] float RespawnXPosition;
-   
-
-    private Camera cam;
     
-    int spawnSize;
+    Transform PipeTransform;
+    [SerializeField]   float PipeSpeed = 2f;
+    [SerializeField] float RespawnXPosition;
+    private Camera cam;
+   [SerializeField] int spawnSize;
     private PipeSpawnner spawnner;
+    
     void Start()
     {
         
@@ -30,19 +28,13 @@ public class PipeMovement : MonoBehaviour
     {
 
 
-        PipeTransform.position += Vector3.left * PipeSpeed * Time.deltaTime;
+       
         if (PipeTransform.position.x <= RespawnXPosition)
         {
-            PipeTransform.position = new Vector3(spawnner.PipeList[spawnner.pipeIndex].transform.position.x + spawnner.PipeDistance, Random.Range(3.53f, -3.19f), 0);
-            if (spawnner.pipeIndex == spawnSize - 1)
-            {
-                spawnner.pipeIndex = 0;
-            }
-           else  if (spawnner.pipeIndex < spawnSize - 1)
-            {
-                spawnner.pipeIndex++;
-            }
+            //PipeTransform.position = new Vector3(spawnner.PipeList[spawnner.pipeIndex].transform.position.x + spawnner.PipeDistance, Random.Range(PipeSpawnner.LowerLimit,PipeSpawnner.UpperLimit), 0);
 
+
+          
         }
     }
     public void DisableMovement()
