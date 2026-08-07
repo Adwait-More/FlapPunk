@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
-    Transform t;
+ 
     
     
 
@@ -17,21 +17,19 @@ public class PlayerMovement : MonoBehaviour
    int TouchCount = 0;
     bool GoingUp;
     bool GoingDown;
-    private AudioManager audioManager;
     private GameManager gameManager;
-    private UiManager uiManager;
-    private PlayerAnimations PlayerAnim;
+  
+ 
 
     void Start()
     {
-        Application.targetFrameRate = 120;
+  
           
         
-        t = GetComponent<Transform>();
+        
         gameManager = FindAnyObjectByType<GameManager>();
-        uiManager = FindAnyObjectByType<UiManager>();
-        audioManager = FindAnyObjectByType<AudioManager>();
-        PlayerAnim=FindAnyObjectByType<PlayerAnimations>();
+        
+    
     }
 
 
@@ -61,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
             Time.timeScale = 1;
             TouchCount++;
-
+            
             GoUp();
         }
 
@@ -74,9 +72,9 @@ public class PlayerMovement : MonoBehaviour
     }
    public void GoUp()
     {
-        audioManager.PlayJumpSound();
+        gameManager.IsGoingUp();
         CurrentSpeed = StartingSpeed;
-        PlayerAnim.SetTrigger();
+       
     }
 
 }

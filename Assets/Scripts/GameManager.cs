@@ -6,16 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
-   public void RestartLVl()
+    private AudioManager audioManager;
+    private AnimationManager animationManager;
+    private PipeSpawnner spawnner;
+    private UiManager uiManager;
+    private void Start()
     {
-       Invoke("InvRestartLvl", 0.5f);
+        animationManager = FindAnyObjectByType<AnimationManager>();
+         spawnner = FindAnyObjectByType<PipeSpawnner>();
+         uiManager = FindAnyObjectByType<UiManager>();  
+         audioManager=FindAnyObjectByType<AudioManager>();
+        Application.targetFrameRate = 120;
+}
+
+public void RestartLVl()
+    {
+        Invoke("InvRestartLvl", 0.5f);
     }
     public void NextLevel_delay()
     {
-         Invoke("NextLevel", 0.5f);
+        Invoke("NextLevel", 0.5f);
     }
-   public void NextLevel()
+    public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Debug.Log("Next Level");
@@ -33,11 +45,26 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        PipeSpawnner spawnner = FindAnyObjectByType<PipeSpawnner>();
+        
         if (spawnner != null)
         {
             spawnner.DisablePipeMovement();
         }
+        
+        audioManager.PlayCollisionSound();
+        
         RestartLVl();
+    }
+    public void GainPoint()
+    {
+        audioManager.PlayPointSound();
+        uiManager.UpdateScore();
+    }
+
+    public void IsGoingUp()
+    {
+        AudioManager audioManager = FindAnyObjectByType<AudioManager>();
+        audioManager.PlayJumpSound();
+        animationManager.PlayPlayerAnimation();
     }
 }

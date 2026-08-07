@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CollisisonDetect : MonoBehaviour
 {
+    bool HasColided=false;
     public int Score = 0;
     public Animator MyAnim;
     private GameManager gameManager;
@@ -30,7 +31,7 @@ public class CollisisonDetect : MonoBehaviour
             gameManager.GameOver();
             Debug.Log("Game Over");
             MyAnim.SetTrigger("Collided");
-
+            HasColided = true;
 
 
 
@@ -38,10 +39,9 @@ public class CollisisonDetect : MonoBehaviour
         else if(collision.gameObject.CompareTag("ScoreCollider"))
         {
             Score++;
-            audioManager.PlayPointSound();
+            gameManager.GainPoint();
             Debug.Log("Score: " + Score);
-           
-            uiManager.UpdateScore();
+            
         }
     }
 

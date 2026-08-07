@@ -12,11 +12,13 @@ public class PipeSpawnner : MonoBehaviour
     public List<GameObject> PipeList = new List<GameObject>();
     public GameObject player;
     float RespawnPos;
+[SerializeField]
+    private float ScrenVar;
     // Start is called before the first frame update
     void Start()
     { 
         
-        RespawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x-1f;
+        RespawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x-ScrenVar;
         for (int i = 0; i < SpawnSize; i++)
         {
             GameObject Pipe = Instantiate(PipePrefab, new Vector3( player.transform.position.x + i*PipeDistance +  PipeDistance, Random.Range(LowerLimit, UpperLimit), 0), Quaternion.identity); 
