@@ -45,7 +45,7 @@ public void RestartLVl()
 
     public void GameOver()
     {
-        
+        animationManager.PlayCollisionAnimation();
         if (spawnner != null)
         {
             spawnner.DisablePipeMovement();

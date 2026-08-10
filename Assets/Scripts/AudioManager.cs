@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip Collision;
-    public AudioClip Jump;
-    public AudioClip Point;
-    public AudioClip Fall;
+    public AudioClip collision;
+    public AudioClip jump;
+    public AudioClip point;
+    public AudioClip fall;
 
 
     void Start()
@@ -23,20 +23,20 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayCollisionSound()
     {
-       AudioSource.PlayClipAtPoint(Collision, Camera.main.transform.position);
+       AudioSource.PlayClipAtPoint(collision, Camera.main.transform.position);
         Invoke("PlayFallSound", 0.25f);
     }
     public void PlayJumpSound()
     {
-       AudioSource.PlayClipAtPoint(Jump, Camera.main.transform.position);
+       AudioSource.PlayClipAtPoint(jump, Camera.main.transform.position);
     }
 
   public void PlayPointSound()
     {
-       AudioSource.PlayClipAtPoint(Point, Camera.main.transform.position);
+       AudioSource.PlayClipAtPoint(point, Camera.main.transform.position);
     }
     public void PlayFallSound()
         {
-         AudioSource.PlayClipAtPoint(Fall, Camera.main.transform.position);
+         AudioSource.PlayClipAtPoint(fall, Camera.main.transform.position);
     }
 }

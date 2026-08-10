@@ -5,11 +5,11 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] float ScrollSpeed = 0.5f;
+    [SerializeField] float scrollSpeed = 0.5f;
     
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Renderer>().material.mainTextureOffset += new Vector2(ScrollSpeed, 0) * Time.deltaTime;
+        GetComponent<Renderer>().material.mainTextureOffset += new Vector2(scrollSpeed, 0) * Time.deltaTime;
     }
 }

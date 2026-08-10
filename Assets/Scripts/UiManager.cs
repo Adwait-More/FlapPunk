@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Jobs;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField]  TextMeshProUGUI ScoreText;
+    [SerializeField]
+     TextMeshProUGUI scoreText;
     int score;
 
-
+ 
 
     public void UpdateScore()
     {
-       ScoreText.text="Score:"+FindAnyObjectByType<CollisisonDetect>().Score.ToString();
+       scoreText.text="Score:"+FindAnyObjectByType<CollisisonDetect>().score.ToString();
         score++;
        
     }

@@ -6,48 +6,47 @@ using Random = UnityEngine.Random;
 
 public class PipeSpawnner : MonoBehaviour
 {
-    private GameObject frontpipe;
-    public float UpperLimit = 3.53f, LowerLimit = -3.19f; 
-    public int SpawnSize, PipeDistance = 5;
-    public GameObject PipePrefab;
-    [SerializeField]   float PipeSpeed = 2f;
-    public List<GameObject> PipeList = new List<GameObject>();
-    public GameObject player;
-    float RespawnPos;
+    private GameObject frontPipe;
+     float upperLimit = 3.53f, lowerLimit = -3.19f;
+     [SerializeField] private int spawnSize=5; 
+     [SerializeField] private   int pipeDistance = 5;
+     [SerializeField] GameObject pipePrefab;
+    [SerializeField]   float pipeSpeed = 2f;
+    [SerializeField] List<GameObject> pipeList = new List<GameObject>();
+    [SerializeField] GameObject player;
+    float respawnPos;
 [SerializeField]
-    private float ScrenVar;
+    private float screenVar;
     // Start is called before the first frame update
     void Start()
-    { 
-        
-        RespawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x-ScrenVar;
-        for (int i = 0; i < SpawnSize; i++)
+    {
+     
+        respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x-screenVar;
+        for (int i = 0; i < spawnSize; i++)
         {
-            GameObject Pipe = Instantiate(PipePrefab, new Vector3( player.transform.position.x + i*PipeDistance +  PipeDistance, Random.Range(LowerLimit, UpperLimit), 0), Quaternion.identity); 
+            GameObject Pipe = Instantiate(pipePrefab, new Vector3( player.transform.position.x + i*pipeDistance +  pipeDistance, Random.Range(lowerLimit, upperLimit), 0), Quaternion.identity); 
             Pipe.SetActive(true);
-            PipeList.Add(Pipe);
+            pipeList.Add(Pipe);
         }
         
     }
-
     
-
     void Update()
     {
-        foreach (GameObject Pipe in PipeList)
-            Pipe.transform.position += Vector3.left * PipeSpeed * Time.deltaTime;
-        if (PipeList[0].transform.position.x < RespawnPos)
+        foreach (GameObject Pipe in pipeList)
+            Pipe.transform.position += Vector3.left * pipeSpeed * Time.deltaTime;
+        if (pipeList[0].transform.position.x < respawnPos)
         {
-            PipeList[0].transform.position= new Vector3(PipeList[SpawnSize-1].transform.position.x+PipeDistance,Random.Range(LowerLimit,UpperLimit),0);
-            frontpipe = PipeList[0];
-            PipeList.RemoveAt(0);
-            PipeList.Add(frontpipe);
+            pipeList[0].transform.position= new Vector3(pipeList[spawnSize-1].transform.position.x+pipeDistance,Random.Range(lowerLimit,upperLimit),0);
+            frontPipe = pipeList[0];
+            pipeList.RemoveAt(0);
+            pipeList.Add(frontPipe);
         }
     }
     
     public void DisablePipeMovement()
     {
-        PipeSpeed = 0;
+        pipeSpeed = 0;
         enabled = false;
     }
 }

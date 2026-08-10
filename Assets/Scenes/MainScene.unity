@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd051d3b2d67974d9f1aa32e94b0529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScrollSpeed: 0.05
+  scrollSpeed: 0.03
 --- !u!1 &151592446
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,15 +267,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e481bf3df8cf80647bb70ecf5dc9f0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpperLimit: 3.53
-  LowerLimit: -3.19
-  SpawnSize: 5
-  PipeDistance: 5
-  PipePrefab: {fileID: 1990137770}
-  PipeSpeed: 2
-  PipeList: []
+  spawnSize: 5
+  pipeDistance: 5
+  pipePrefab: {fileID: 1990137770}
+  pipeSpeed: 2
+  pipeList: []
   player: {fileID: 993751320}
-  ScrenVar: 2
+  screenVar: 0
 --- !u!1 &245630004
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +285,6 @@ GameObject:
   - component: {fileID: 245630005}
   - component: {fileID: 245630006}
   - component: {fileID: 245630007}
-  - component: {fileID: 245630008}
   m_Layer: 0
   m_Name: Thruster
   m_TagString: Untagged
@@ -392,18 +389,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &245630008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245630004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df78a2e983d9ca24cae6299eb8a0bcd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationManager
 --- !u!1 &286653477
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,9 +933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7930c8d23fb98428f0533c47f29c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingSpeed: 10
-  CurrentSpeed: 0
-  Decleration: 40
+  startingSpeed: 5
+  currentSpeed: 0
+  decleration: 20
 --- !u!4 &993751324
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,8 +1037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea696f82ceab8247a1bc28c1298dbcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 0
-  MyAnim: {fileID: 519420034}
+  score: 0
 --- !u!1 &1061519686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1061519687}
+  - component: {fileID: 1061519688}
   m_Layer: 0
   m_Name: AnimationManager
   m_TagString: Untagged
@@ -1085,6 +1070,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061519688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061519686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df78a2e983d9ca24cae6299eb8a0bcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationManager
+  thrustAnim: {fileID: 245630007}
+  collidedAnim: {fileID: 519420034}
 --- !u!1 &1708819639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87f71a7520f0bb43977dd08e48fbcc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 286653479}
+  scoreText: {fileID: 286653479}
 --- !u!224 &1758238591
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1393,10 +1392,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e399108226234434d9edfa045e9336ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collision: {fileID: 8300000, guid: 62e469613ac36b24ebc9544a22ee0aec, type: 3}
-  Jump: {fileID: 8300000, guid: 2c89fd5afc531224a8a70f3980ba937b, type: 3}
-  Point: {fileID: 8300000, guid: eab5906ef0150ca4292263ac88fbd267, type: 3}
-  Fall: {fileID: 8300000, guid: 57dcc608d6352144d91319a7e2459bf3, type: 3}
+  collision: {fileID: 8300000, guid: 62e469613ac36b24ebc9544a22ee0aec, type: 3}
+  jump: {fileID: 8300000, guid: 2c89fd5afc531224a8a70f3980ba937b, type: 3}
+  point: {fileID: 8300000, guid: eab5906ef0150ca4292263ac88fbd267, type: 3}
+  fall: {fileID: 8300000, guid: 57dcc608d6352144d91319a7e2459bf3, type: 3}
 --- !u!1001 &1312685098142954165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,7 +1700,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.43242
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6266901420205858775, guid: 13afd0d9ce2f8104b897e1a2f9a04663, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2334297154060919672, guid: 13afd0d9ce2f8104b897e1a2f9a04663, type: 3}
     - {fileID: 8641519940216613392, guid: 13afd0d9ce2f8104b897e1a2f9a04663, type: 3}

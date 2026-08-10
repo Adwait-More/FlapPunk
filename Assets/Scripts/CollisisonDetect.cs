@@ -5,18 +5,17 @@ using UnityEngine.UI;
 
 public class CollisisonDetect : MonoBehaviour
 {
-    bool HasColided=false;
-    public int Score = 0;
-    public Animator MyAnim;
+    
+    public int score = 0;
+ 
     private GameManager gameManager;
-    private UiManager uiManager;
-    private AudioManager audioManager;
+    
+   
     private void Start()
     {
      
-        gameManager = FindObjectOfType<GameManager>();
-        uiManager = FindObjectOfType<UiManager>();
-        audioManager = FindObjectOfType<AudioManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
+       
     }
 
 
@@ -26,21 +25,20 @@ public class CollisisonDetect : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pipe"))
         {
-            audioManager.PlayCollisionSound();
+           
             gameManager.RestartLVl();
             gameManager.GameOver();
             Debug.Log("Game Over");
-            MyAnim.SetTrigger("Collided");
-            HasColided = true;
+       
 
 
 
         }
         else if(collision.gameObject.CompareTag("ScoreCollider"))
         {
-            Score++;
+            score++;
             gameManager.GainPoint();
-            Debug.Log("Score: " + Score);
+            Debug.Log("Score: " + score);
             
         }
     }
