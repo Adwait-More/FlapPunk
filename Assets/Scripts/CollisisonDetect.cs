@@ -9,11 +9,12 @@ public class CollisisonDetect : MonoBehaviour
     public int score = 0;
  
     private GameManager gameManager;
+    private StateMachine stateMachine;
     
    
     private void Start()
     {
-     
+        stateMachine=FindAnyObjectByType<StateMachine>();
         gameManager = FindAnyObjectByType<GameManager>();
        
     }
@@ -29,8 +30,7 @@ public class CollisisonDetect : MonoBehaviour
             gameManager.RestartLVl();
             gameManager.GameOver();
             Debug.Log("Game Over");
-       
-
+stateMachine.EndGame();
 
 
         }

@@ -10,7 +10,9 @@ public class StateMachine : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    void StartGame()
+  
+    
+   public void StartGame()
     {
         Time.timeScale = 1f;
         currentState=GameState.Playing;
