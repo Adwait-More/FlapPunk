@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameState currentState;
+
     void Start()
     {
-        
+        currentState = GameState.GetReady;
+        Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    void StartGame()
     {
-        
+        Time.timeScale = 1f;
+        currentState=GameState.Playing;
+    }
+
+    public void EndGame()
+    {
+         currentState=GameState.GameOver;
     }
 }
