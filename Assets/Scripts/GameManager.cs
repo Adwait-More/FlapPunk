@@ -6,18 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private AudioManager audioManager;
-    private AnimationManager animationManager;
-    private PipeSpawnner spawnner;
-    private UiManager uiManager;
-    private Background background;
+    [SerializeField] AudioManager audioManager;
+    [SerializeField] AnimationManager animationManager;
+    [SerializeField]  PipeSpawnner spawnner;
+    [SerializeField] UiManager uiManager;
+    [SerializeField] Background background;
     private void Start()
     {
-        animationManager = FindAnyObjectByType<AnimationManager>();
-         spawnner = FindAnyObjectByType<PipeSpawnner>();
-         uiManager = FindAnyObjectByType<UiManager>();  
-         audioManager=FindAnyObjectByType<AudioManager>();
-         background = FindAnyObjectByType<Background>();
         Application.targetFrameRate = 120;
 }
 

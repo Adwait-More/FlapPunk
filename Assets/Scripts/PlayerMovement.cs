@@ -13,18 +13,9 @@ public class PlayerMovement : MonoBehaviour
     bool goingUp;
     bool goingDown;
     bool IsFlappy = true;
-    private GameManager gameManager;
-    private StateMachine stateMachine;
-
-
-
-    void Start()
-    {
-        gameManager = FindAnyObjectByType<GameManager>();
-        stateMachine = FindAnyObjectByType<StateMachine>();
-    }
-
-
+    [SerializeField]private GameManager gameManager;
+    [SerializeField]private StateMachine stateMachine;
+    
     void Update()
     {
         if (IsFlappy)

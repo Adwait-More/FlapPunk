@@ -1,10 +1,11 @@
+using UnityEditor.Search;
 using UnityEngine;
 
 public class AnimationManager:MonoBehaviour
 {
     
-    public Animator thrustAnim;
-    public Animator collidedAnim;
+    [SerializeField] Animator thrustAnim;
+    [SerializeField] Animator collidedAnim;
     public void PlayPlayerAnimation()
     {
             thrustAnim.SetTrigger("Flap");

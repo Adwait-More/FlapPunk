@@ -8,16 +8,11 @@ public class CollisisonDetect : MonoBehaviour
     
     public int score = 0;
  
-    private GameManager gameManager;
-    private StateMachine stateMachine;
+    [SerializeField] GameManager gameManager;
+    [SerializeField] StateMachine stateMachine;
     
    
-    private void Start()
-    {
-        stateMachine=FindAnyObjectByType<StateMachine>();
-        gameManager = FindAnyObjectByType<GameManager>();
-       
-    }
+    
 
 
     private void OnTriggerEnter2D(Collider2D collision)
