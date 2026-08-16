@@ -12,9 +12,10 @@ public class PlayerMovement : MonoBehaviour
    bool hasTouched = false;
     bool goingUp;
     bool goingDown;
+    bool IsFlappy = true;
     private GameManager gameManager;
     private StateMachine stateMachine;
-  
+    
  
 
     void Start()
@@ -26,53 +27,61 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (stateMachine.currentState == GameState.GameOver)
+        if (IsFlappy)
         {
-            return;
-        }
-        currentSpeed -= decleration * Time.deltaTime;
-        transform.position += Vector3.up * currentSpeed * Time.deltaTime;
-
-        if (Input.touchCount > 0)
-        {
-
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (stateMachine.currentState == GameState.GameOver)
             {
-                if (hasTouched ==false)
+                return;
+            }
+
+            currentSpeed -= decleration * Time.deltaTime;
+            transform.position += Vector3.up * currentSpeed * Time.deltaTime;
+
+            if (Input.touchCount > 0)
+            {
+
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
-                    stateMachine.StartGame();
-                   hasTouched = true;
+                    if (hasTouched == false)
+                    {
+                        stateMachine.StartGame();
+                        hasTouched = true;
+                    }
+
+                    GoUp();
+
                 }
-                GoUp();
 
             }
-            
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (hasTouched == false)
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Time.timeScale = 1;
-                hasTouched = true;
+                if (hasTouched == false)
+                {
+                    Time.timeScale = 1;
+                    hasTouched = true;
+                }
+
+                GoUp();
             }
 
-            GoUp();
-        }
 
 
+            if (transform.position.y > 5f || transform.position.y < -5f)
+            {
+                gameManager.RestartLVl();
+            }
 
-        if(transform.position.y > 5f || transform.position.y < -5f)
-    {
-            gameManager.RestartLVl();
-        }
+
+            public void GoUp()
+            {
+                gameManager.IsGoingUp();
+                currentSpeed = startingSpeed;
+
+            }
+        
+
     }
-   public void GoUp()
-    {
-        gameManager.IsGoingUp();
-        currentSpeed = startingSpeed;
-       
-    }
-
 }
 
 

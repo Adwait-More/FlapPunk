@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     private AnimationManager animationManager;
     private PipeSpawnner spawnner;
     private UiManager uiManager;
+    private Background background;
     private void Start()
     {
         animationManager = FindAnyObjectByType<AnimationManager>();
          spawnner = FindAnyObjectByType<PipeSpawnner>();
          uiManager = FindAnyObjectByType<UiManager>();  
          audioManager=FindAnyObjectByType<AudioManager>();
+         background = FindAnyObjectByType<Background>();
         Application.targetFrameRate = 120;
 }
 
@@ -50,7 +52,7 @@ public void RestartLVl()
         {
             spawnner.DisablePipeMovement();
         }
-        
+        background.enabled = false;
         audioManager.PlayCollisionSound();
         
         RestartLVl();

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,11 +13,15 @@ public class UiManager : MonoBehaviour
      TextMeshProUGUI scoreText;
     int score;
 
- 
+    private void Start()
+    {
+        score = FindAnyObjectByType<CollisisonDetect>().score;
+        score = 0;
+    }
 
     public void UpdateScore()
     {
-       scoreText.text="Score:"+FindAnyObjectByType<CollisisonDetect>().score.ToString();
+       scoreText.text="Score:"+score.ToString();
         score++;
        
     }
