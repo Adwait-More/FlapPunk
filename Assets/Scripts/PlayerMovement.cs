@@ -73,6 +73,10 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
+        else
+        {
+             
+        }
     }
     
     public void GoUp()
