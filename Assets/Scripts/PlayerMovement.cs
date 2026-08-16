@@ -6,22 +6,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-   public float startingSpeed = 0f;
-   public float currentSpeed;
-   public float decleration = 10f;
-   bool hasTouched = false;
+    public float startingSpeed = 0f;
+    public float currentSpeed;
+    public float decleration = 10f;
+    bool hasTouched = false;
     bool goingUp;
     bool goingDown;
     bool IsFlappy = true;
     private GameManager gameManager;
     private StateMachine stateMachine;
-    
- 
+
+
 
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
-        stateMachine=FindAnyObjectByType<StateMachine>();
+        stateMachine = FindAnyObjectByType<StateMachine>();
     }
 
 
@@ -71,17 +71,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 gameManager.RestartLVl();
             }
-
-
-            public void GoUp()
-            {
-                gameManager.IsGoingUp();
-                currentSpeed = startingSpeed;
-
-            }
-        
+            
+        }
+    }
+    
+    public void GoUp()
+    {
+        gameManager.IsGoingUp();
+        currentSpeed = startingSpeed;
 
     }
+
 }
 
 

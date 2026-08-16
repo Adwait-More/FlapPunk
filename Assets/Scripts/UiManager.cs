@@ -16,7 +16,7 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         score = FindAnyObjectByType<CollisisonDetect>().score;
-        score = 0;
+        score++;
     }
 
     public void UpdateScore()
