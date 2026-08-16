@@ -446,7 +446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:
+  m_text: 'SCORE:
 
 '
   m_isRightToLeft: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278232063
-  m_fontColor: {r: 1, g: 0.64107525, b: 0, a: 1}
+    rgba: 4280323066
+  m_fontColor: {r: 0.9811321, g: 0.5460731, b: 0.124955505, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -72.7802, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1774,6 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87f71a7520f0bb43977dd08e48fbcc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreCollisison: {fileID: 993751327}
   scoreText: {fileID: 286653479}
 --- !u!224 &1758238591
 RectTransform:

@@ -9,21 +9,17 @@ using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
-    private CollisisonDetect scoreCollisison;
+    [SerializeField] CollisisonDetect scoreCollisison;
     [SerializeField] TextMeshProUGUI scoreText;
     
     
 
-    private void Start()
-    {
-        
-        scoreCollisison.score++;
-    }
+    
 
     public void UpdateScore()
     {
-       scoreText.text="Score:"+scoreCollisison.ToString();
-        scoreCollisison.score++;
+       scoreText.text="SCORE:"+scoreCollisison.score.ToString();
+        
        
     }
     
