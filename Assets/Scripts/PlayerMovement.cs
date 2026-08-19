@@ -10,12 +10,16 @@ public class PlayerMovement : MonoBehaviour
     public float currentSpeed;
     public float decleration = 10f;
     bool hasTouched = false;
-    bool goingUp;
-    bool goingDown;
-    bool IsFlappy = true;
+    public bool goingUp;
+    public bool goingDown;
+    [SerializeField] bool IsFlappy = true;
     [SerializeField]private GameManager gameManager;
     [SerializeField]private StateMachine stateMachine;
-    
+
+    void Start()
+    {
+        stateMachine.StartGame();
+    }
     void Update()
     {
         if (IsFlappy)
@@ -66,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            
+            Go();
         }
     }
     
@@ -76,14 +80,26 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = startingSpeed;
 
     }
-    public void GoUp()
+    public void Go()
     {
         transform.position += Vector3.up * currentSpeed * Time.deltaTime;
-        gameManager.IsGoingUp();}
-    public void GoDown()
+    }
+    
+
+    public void GO_UP()
     {
-    transform.position += Vector3.down * currentSpeed * Time.deltaTime;
-    gameManager.IsGoingDown();
+        currentSpeed = 5;
+
+    }
+
+    public void Set0()
+    {
+        currentSpeed = 0;
+    }
+
+    public void GO_DOWN()
+    {
+        currentSpeed = -5;
     }
 }
 
