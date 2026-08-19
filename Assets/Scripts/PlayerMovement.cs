@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
                         hasTouched = true;
                     }
 
-                    GoUp();
+                    Jump(); 
 
                 }
 
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
                     hasTouched = true;
                 }
 
-                GoUp();
+                Jump();
             }
 
 
@@ -66,18 +66,28 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-             
+            
         }
     }
     
-    public void GoUp()
+    public void Jump()
     {
         gameManager.IsGoingUp();
         currentSpeed = startingSpeed;
 
     }
-
+    public void GoUp()
+    {
+        transform.position += Vector3.up * currentSpeed * Time.deltaTime;
+        gameManager.IsGoingUp();}
+    public void GoDown()
+    {
+    transform.position += Vector3.down * currentSpeed * Time.deltaTime;
+    gameManager.IsGoingDown();
+    }
 }
+
+
 
 
 

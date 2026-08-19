@@ -1,4 +1,4 @@
-using UnityEditor.Search;
+
 using UnityEngine;
 
 public class AnimationManager:MonoBehaviour
