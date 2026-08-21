@@ -64,6 +64,6 @@ public void RestartLVl()
         audioManager.PlayJumpSound();
         animationManager.PlayPlayerAnimation();
     }
-    public void IsGoingDown()
-    {}
+    public void IsGoingDown(){
+}
 }

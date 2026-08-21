@@ -1,7 +1,8 @@
 ﻿public enum GameState
 {
      GetReady,
-     Playing,
+     Playing, 
+     Cyber,
      GameOver,
      
 }

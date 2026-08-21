@@ -10,7 +10,11 @@ public class StateMachine : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-  
+    public void CyberMode()
+    {
+        currentState = GameState.Cyber;
+        
+    }
     
    public void StartGame()
     {
