@@ -10,14 +10,10 @@ public class CollisisonDetect : MonoBehaviour
  
     [SerializeField] GameManager gameManager;
     [SerializeField] StateMachine stateMachine;
+    private int counter = 1;
     
-   
-    
-
-
     private void OnTriggerEnter2D(Collider2D collision)
-
-
+    
     {
         if(collision.gameObject.CompareTag("Pipe"))
         {
@@ -31,6 +27,11 @@ stateMachine.EndGame();
         }
         else if(collision.gameObject.CompareTag("ScoreCollider"))
         {
+            if (score == 10)
+            {
+                stateMachine.BoosterModeOn();
+                counter=1;
+            }
             score++;
             gameManager.GainPoint();
             Debug.Log("Score: " + score);

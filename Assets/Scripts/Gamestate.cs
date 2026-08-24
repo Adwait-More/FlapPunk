@@ -2,7 +2,7 @@
 {
      GetReady,
      Playing, 
-     Cyber,
+     Booster,
      GameOver,
      
 }

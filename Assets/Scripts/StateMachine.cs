@@ -3,16 +3,20 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public GameState currentState;
+    private GameManager gameManager;
+    
 
     void Start()
-    {
+    { 
+        gameManager =FindObjectOfType<GameManager>();
         currentState = GameState.GetReady;
         Time.timeScale = 0f;
     }
 
-    public void CyberMode()
+    public void BoosterModeOn()
     {
-        currentState = GameState.Cyber;
+        currentState = GameState.Booster;
+        gameManager.BoosterModeOn();
         
     }
     
@@ -24,6 +28,7 @@ public class StateMachine : MonoBehaviour
 
     public void EndGame()
     {
+        gameManager.RestartLVl();
          currentState=GameState.GameOver;
     }
 }

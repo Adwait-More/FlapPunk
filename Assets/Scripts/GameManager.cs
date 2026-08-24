@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]  PipeSpawnner spawnner;
     [SerializeField] UiManager uiManager;
     [SerializeField] Background background;
+    [SerializeField] private GameObject Buttons;
     private void Start()
     {
         Application.targetFrameRate = 120;
@@ -56,6 +57,7 @@ public void RestartLVl()
     {
         audioManager.PlayPointSound();
         uiManager.UpdateScore();
+        
     }
 
     public void IsGoingUp()
@@ -63,6 +65,11 @@ public void RestartLVl()
         AudioManager audioManager = FindAnyObjectByType<AudioManager>();
         audioManager.PlayJumpSound();
         animationManager.PlayPlayerAnimation();
+    }
+
+    public void BoosterModeOn()
+    {
+         Buttons.SetActive(true);
     }
     public void IsGoingDown(){
 }

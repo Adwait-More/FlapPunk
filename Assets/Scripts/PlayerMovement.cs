@@ -22,21 +22,24 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if (IsFlappy)
+        transform.position += Vector3.up * currentSpeed * Time.deltaTime;
+        if (stateMachine.currentState != GameState.Booster)
         {
+            //Normal flappy bird
             if (stateMachine.currentState == GameState.GameOver)
             {
                 return;
             }
-
+            //Gravity and movement logic
             currentSpeed -= decleration * Time.deltaTime;
-            transform.position += Vector3.up * currentSpeed * Time.deltaTime;
-
-            if (Input.touchCount > 0)
+            
+            //Cecks the total number of touches on the screen at the same time 
+            if (Input.touchCount > 0)//We use this to prevent the next if statement from crashing due to an index out of range execption
             {
-
+            //Checks for the first finger to touch the screen and if the finger jsut made contact with the screen
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
+                    //logic for the first touch
                     if (hasTouched == false)
                     {
                         stateMachine.StartGame();
@@ -48,30 +51,14 @@ public class PlayerMovement : MonoBehaviour
                 }
 
             }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (hasTouched == false)
-                {
-                    Time.timeScale = 1;
-                    hasTouched = true;
-                }
-
-                Jump();
-            }
-
-
-
+            //Check if player is OutOfBounds
             if (transform.position.y > 5f || transform.position.y < -5f)
             {
-                gameManager.RestartLVl();
+                stateMachine.EndGame();
             }
             
         }
-        else
-        {
-            Go();
-        }
+        
     }
     
     public void Jump()
