@@ -58,12 +58,18 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
+        else
+        {
+            if(Input.touchCount ==0)
+            currentSpeed -= currentSpeed;
+        }
         
     }
     
     public void Jump()
     {
         gameManager.IsGoingUp();
+        
         currentSpeed = startingSpeed;
 
     }

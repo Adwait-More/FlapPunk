@@ -70,6 +70,11 @@ public void RestartLVl()
     public void BoosterModeOn()
     {
          Buttons.SetActive(true);
+         foreach (GameObject pipe in spawnner.pipeList)
+             pipe.SetActive(false);
+         
+             
+         
     }
     public void IsGoingDown(){
 }

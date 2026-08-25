@@ -12,7 +12,7 @@ public class PipeSpawnner : MonoBehaviour
      [SerializeField] private   int pipeDistance = 5;
      [SerializeField] GameObject pipePrefab;
     [SerializeField]   float pipeSpeed = 2f;
-    [SerializeField] List<GameObject> pipeList = new List<GameObject>();
+    [SerializeField] public List<GameObject> pipeList = new List<GameObject>();
     [SerializeField] GameObject player;
     float respawnPos;
 [SerializeField]
