@@ -28,7 +28,7 @@ public class StateMachine : MonoBehaviour
 
     public void EndGame()
     {
-        gameManager.RestartLVl();
+        gameManager.GameOver();
          currentState=GameState.GameOver;
     }
 }

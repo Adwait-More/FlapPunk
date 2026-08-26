@@ -12,15 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] UiManager uiManager;
     [SerializeField] Background background;
     [SerializeField] private GameObject Buttons;
+    [SerializeField] GameObject Cam;
+    private Transform CameraTransform;
     private void Start()
     {
         Application.targetFrameRate = 120;
 }
 
-public void RestartLVl()
-    {
-        Invoke("InvRestartLvl", 0.5f);
-    }
+
     public void NextLevel_delay()
     {
         Invoke("NextLevel", 0.5f);
@@ -51,7 +50,7 @@ public void RestartLVl()
         background.enabled = false;
         audioManager.PlayCollisionSound();
         
-        RestartLVl();
+        Invoke("InvRestartLvl" , 0.25f);
     }
     public void GainPoint()
     {
@@ -65,16 +64,16 @@ public void RestartLVl()
         AudioManager audioManager = FindAnyObjectByType<AudioManager>();
         audioManager.PlayJumpSound();
         animationManager.PlayPlayerAnimation();
+        animationManager.PlayZoomAnimation();
     }
 
     public void BoosterModeOn()
     {
+        
          Buttons.SetActive(true);
          foreach (GameObject pipe in spawnner.pipeList)
              pipe.SetActive(false);
-         
-             
-         
+        // Cam.transform.position=new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x-2.5f,0,-2);   
     }
     public void IsGoingDown(){
 }

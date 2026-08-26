@@ -8,7 +8,13 @@ public class AudioManager : MonoBehaviour
     public AudioClip jump;
     public AudioClip point;
     public AudioClip fall;
-    
+    public bool IsBoosting;
+
+    void update()
+    {
+        if(IsBoosting)
+        PlayJumpSound();
+    }
     public void PlayCollisionSound()
     {
        AudioSource.PlayClipAtPoint(collision, Camera.main.transform.position);
@@ -23,8 +29,18 @@ public class AudioManager : MonoBehaviour
     {
        AudioSource.PlayClipAtPoint(point, Camera.main.transform.position);
     }
-    public void PlayFallSound()
+  public void PlayFallSound()
         {
          AudioSource.PlayClipAtPoint(fall, Camera.main.transform.position);
+        }
+  public  void SetBoostActive()
+    {
+        if(IsBoosting=false)
+        IsBoosting = true;
+        else
+        {
+             IsBoosting = false;
+        }
     }
 }
+

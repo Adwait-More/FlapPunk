@@ -17,9 +17,7 @@ public class CollisisonDetect : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pipe"))
         {
-           
-            gameManager.RestartLVl();
-            gameManager.GameOver();
+          
             Debug.Log("Game Over");
 stateMachine.EndGame();
 

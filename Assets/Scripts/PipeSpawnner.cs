@@ -14,7 +14,7 @@ public class PipeSpawnner : MonoBehaviour
     [SerializeField]   float pipeSpeed = 2f;
     [SerializeField] public List<GameObject> pipeList = new List<GameObject>();
     [SerializeField] GameObject player;
-    float respawnPos;
+    public float respawnPos;
 [SerializeField]
     private float screenVar;
     // Start is called before the first frame update
