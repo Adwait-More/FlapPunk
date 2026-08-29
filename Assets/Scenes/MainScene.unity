@@ -273,6 +273,7 @@ MonoBehaviour:
   pipeSpeed: 2
   pipeList: []
   player: {fileID: 993751320}
+  respawnPos: 0
   screenVar: 1
 --- !u!1 &245630004
 GameObject:
@@ -892,8 +893,8 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a2f6aaf9c354b6e4199297c6fc66fda2, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
@@ -2642,9 +2643,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
       propertyPath: Camera
       value: 
       objectReference: {fileID: 519420028}
+    - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 993751320}
     - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
       propertyPath: Buttons
       value: 
@@ -2665,6 +2674,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 2005073078}
+    - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
+      propertyPath: PlayerTransform
+      value: 
+      objectReference: {fileID: 993751324}
     - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
       propertyPath: animationManager
       value: 

@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool IsFlappy = true;
     [SerializeField]private GameManager gameManager;
     [SerializeField]private StateMachine stateMachine;
+    private Vector3 targetPos=new Vector3(-1.5f,0f,0f);
 
     void Start()
     {
@@ -60,6 +61,12 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            if (transform.position.x != -1.5f)
+            {
+                transform.position =
+                    Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
+            }
+
             if(Input.touchCount ==0)
             currentSpeed -= currentSpeed;
         }

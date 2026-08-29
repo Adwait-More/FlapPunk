@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    
     [SerializeField] AudioManager audioManager;
     [SerializeField] AnimationManager animationManager;
     [SerializeField]  PipeSpawnner spawnner;
@@ -13,11 +12,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] Background background;
     [SerializeField] private GameObject Buttons;
     [SerializeField] GameObject Cam;
+    
     private Transform CameraTransform;
+    [SerializeField] Transform PlayerTransform;
     private void Start()
     {
+        
         Application.targetFrameRate = 120;
-}
+} 
 
 
     public void NextLevel_delay()
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
          foreach (GameObject pipe in spawnner.pipeList)
              pipe.SetActive(false);
         // Cam.transform.position=new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x-2.5f,0,-2);   
+        PlayerTransform.position =  Vector3.MoveTowards(PlayerTransform.position, new Vector3(-1.5f,0,0),1f);
     }
     public void IsGoingDown(){
 }
