@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         AudioManager audioManager = FindAnyObjectByType<AudioManager>();
         audioManager.PlayJumpSound();
         animationManager.PlayPlayerAnimation();
-        animationManager.PlayZoomAnimation();
+
     }
 
     public void BoosterModeOn()
