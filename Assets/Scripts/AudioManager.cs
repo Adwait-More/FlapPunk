@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
   public  void SetBoostActive()
     {
         if(IsBoosting=false)
-        IsBoosting = true;
+        IsBoosting = true;      
         else
         {
              IsBoosting = false;
