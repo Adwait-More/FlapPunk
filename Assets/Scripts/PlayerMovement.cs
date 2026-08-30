@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 
@@ -9,17 +7,16 @@ public class PlayerMovement : MonoBehaviour
     public float startingSpeed = 0f;
     public float currentSpeed;
     public float decleration = 10f;
-    bool hasTouched = false;
-    public bool goingUp;
-    public bool goingDown;
-    [SerializeField] bool IsFlappy = true;
+    bool _hasTouched = false;
     [SerializeField]private GameManager gameManager;
     [SerializeField]private StateMachine stateMachine;
-    private Vector3 targetPos=new Vector3(-1.5f,0f,0f);
+    private Vector3 targetPos=new Vector3(0f,0f,0f);
 
     void Start()
     {
         stateMachine.StartGame();
+        targetPos=Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f))+new Vector3(0.5f,0f,0f);
+        targetPos=new Vector3(targetPos.x,0f,0f);
     }
     void Update()
     {
@@ -41,10 +38,10 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     //logic for the first touch
-                    if (hasTouched == false)
+                    if (_hasTouched == false)
                     {
                         stateMachine.StartGame();
-                        hasTouched = true;
+                        _hasTouched = true;
                     }
 
                     Jump(); 
@@ -52,25 +49,22 @@ public class PlayerMovement : MonoBehaviour
                 }
 
             }
-            //Check if player is OutOfBounds
-            if (transform.position.y > 5f || transform.position.y < -5f)
-            {
-                stateMachine.EndGame();
-            }
-            
         }
         else
         {
-            if (transform.position.x != -1.5f)
+            if (transform.position.x != targetPos.x)
             {
-                transform.position =
-                    Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
-            }
+             transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
+           }
 
             if(Input.touchCount ==0)
             currentSpeed -= currentSpeed;
         }
-        
+        //Check if player is OutOfBounds
+        if (transform.position.y > 5f || transform.position.y < -5f)
+        {
+            stateMachine.EndGame();
+        }
     }
     
     public void Jump()
