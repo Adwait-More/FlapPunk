@@ -18,9 +18,4 @@ public class AnimationManager:MonoBehaviour
             collidedAnim.SetTrigger("Collided");
        
     }
-
-    public void PlayZoomAnimation()
-    {
-        collidedAnim.SetTrigger("Zoom");
-    }
 }
