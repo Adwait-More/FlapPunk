@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Background background;
     [SerializeField] private GameObject Buttons;
     [SerializeField] GameObject Cam;
+    [SerializeField] EnemySpawnner eSpawner; 
     
     private Transform CameraTransform;
     [SerializeField] Transform PlayerTransform;
@@ -73,10 +74,13 @@ public class GameManager : MonoBehaviour
     {
         
          Buttons.SetActive(true);
-         foreach (GameObject pipe in spawnner.pipeList)
+         foreach (GameObject pipe in spawnner.pipeList) 
              pipe.SetActive(false);
         // Cam.transform.position=new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x-2.5f,0,-2);   
         PlayerTransform.position =  Vector3.MoveTowards(PlayerTransform.position, new Vector3(-1.5f,0,0),1f);
+        //
+        eSpawner.Spawn();
+        
     }
     public void IsGoingDown(){
 }
