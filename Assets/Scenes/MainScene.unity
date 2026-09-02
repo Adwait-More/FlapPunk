@@ -273,7 +273,6 @@ MonoBehaviour:
   pipeSpeed: 2
   pipeList: []
   player: {fileID: 993751320}
-  respawnPos: 0
   screenVar: 1
 --- !u!1 &183831793
 GameObject:
@@ -1495,6 +1494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72b468f732f9814ca88325fd68103ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Eenmy: {fileID: 2076812207}
+  row: 3
+  col: 3
 --- !u!4 &890165608
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,7 +1506,7 @@ Transform:
   m_GameObject: {fileID: 890165606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: 1169.8, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3007,7 +3009,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 0, g: 0.060104966, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3027,7 +3029,7 @@ Transform:
   m_GameObject: {fileID: 2076812207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.92, y: 0.06, z: 0}
+  m_LocalPosition: {x: 2.97, y: 4.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3069,7 +3071,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
@@ -3421,6 +3423,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1851135287}
     - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
+      propertyPath: eSpawner
+      value: 
+      objectReference: {fileID: 890165607}
+    - target: {fileID: 1458144005767663038, guid: 66be8076d3f761049b866b5658769b64, type: 3}
       propertyPath: spawnner
       value: 
       objectReference: {fileID: 151592448}
@@ -3590,10 +3596,10 @@ SceneRoots:
   - {fileID: 993751324}
   - {fileID: 1312685098142954165}
   - {fileID: 151592447}
-  - {fileID: 4921064764304109099}
   - {fileID: 1708819643}
   - {fileID: 890165608}
   - {fileID: 1442494109}
+  - {fileID: 4921064764304109099}
   - {fileID: 673650439}
   - {fileID: 1758238591}
   - {fileID: 2005073077}

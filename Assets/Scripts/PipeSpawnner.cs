@@ -14,13 +14,13 @@ public class PipeSpawnner : MonoBehaviour
     [SerializeField]   float pipeSpeed = 2f;
     [SerializeField] public List<GameObject> pipeList = new List<GameObject>();
     [SerializeField] GameObject player;
-    public float respawnPos;
+    static float LrespawnPos;
 [SerializeField]
     private float screenVar;
     // Start is called before the first frame update
     void Start()
     {
-        respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x-screenVar;
+        LrespawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x-screenVar;
         //Instantiate all the pipes from the players position
         for (int i = 0; i < spawnSize; i++)
         {
@@ -36,7 +36,7 @@ public class PipeSpawnner : MonoBehaviour
         foreach (GameObject Pipe in pipeList)
             Pipe.transform.position += Vector3.left * pipeSpeed * Time.deltaTime;
         //Check if the first pipe in the list has crossed the screen
-        if (pipeList[0].transform.position.x < respawnPos)
+        if (pipeList[0].transform.position.x < LrespawnPos)
         {
             //move the pipe to the spawn position of for the new pipe
             pipeList[0].transform.position= new Vector3(pipeList[spawnSize-1].transform.position.x+pipeDistance,Random.Range(lowerLimit,upperLimit),0);

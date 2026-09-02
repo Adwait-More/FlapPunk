@@ -7,9 +7,10 @@ public  class  EnemySpawnner : MonoBehaviour
     [SerializeField] private int row;
     [SerializeField] private int col;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+  
     void Start()
     {
-      
+      transform.position=BulletScript.respawnPos;
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public  class  EnemySpawnner : MonoBehaviour
         {
             for (int j = 0; j < col; j++)
             {
-                Instantiate(Eenmy, new Vector3(transform.position.x + j, transform.position.y+i, transform.position.z), transform.rotation);
+                Instantiate(Eenmy,new Vector3(transform.position.x + j-1, transform.position.y+i, transform.position.z), transform.rotation);
             }
         }
     }

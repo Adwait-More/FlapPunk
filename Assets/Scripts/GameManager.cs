@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UiManager uiManager;
     [SerializeField] Background background;
     [SerializeField] private GameObject Buttons;
-    [SerializeField] GameObject Cam;
+    static  GameObject Cam;
     [SerializeField] EnemySpawnner eSpawner; 
     
     private Transform CameraTransform;

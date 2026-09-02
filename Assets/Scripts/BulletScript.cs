@@ -4,8 +4,8 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     [SerializeField] private float  bulletSpeed;
-    public Vector3 respawnPos;
-    void Start()
+   public  static Vector3 respawnPos;
+    void Awake()
     {
         respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.5f, 0));
     }
