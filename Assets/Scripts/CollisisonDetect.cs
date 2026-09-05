@@ -10,7 +10,7 @@ public class CollisisonDetect : MonoBehaviour
  
     [SerializeField] GameManager gameManager;
     [SerializeField] StateMachine stateMachine;
-    private int counter = 1;
+    private int counter;
     
     private void OnTriggerEnter2D(Collider2D collision)
     

@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
         eSpawner.Spawn();
         
     }
-    public void IsGoingDown(){
-}
+
+   public void KillEnemy(Collider2D collisionInfo)
+    {
+        audioManager.PlayEnemyKillSound();
+        Destroy(collisionInfo.gameObject);
+    }
+
 }

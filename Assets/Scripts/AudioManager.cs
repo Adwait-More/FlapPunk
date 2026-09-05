@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip jump;
     public AudioClip point;
     public AudioClip fall;
+    public AudioClip shoot;
+    [SerializeField] private AudioClip Kill;
+    
     public bool IsBoosting;
 
     void update()
@@ -33,14 +36,15 @@ public class AudioManager : MonoBehaviour
         {
          AudioSource.PlayClipAtPoint(fall, Camera.main.transform.position);
         }
-  public  void SetBoostActive()
-    {
-        if(IsBoosting=false)
-        IsBoosting = true;      
-        else
-        {
-             IsBoosting = false;
-        }
-    }
+
+  public void PlayEnemyKillSound()
+  {
+        AudioSource.PlayClipAtPoint(Kill,Camera.main.transform.position);
+  }
+
+  public void PlayShootSound()
+  {
+      AudioSource.PlayClipAtPoint(shoot,Camera.main.transform.position);
+  }
 }
 

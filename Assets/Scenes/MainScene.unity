@@ -2988,6 +2988,8 @@ MonoBehaviour:
   jump: {fileID: 8300000, guid: 2c89fd5afc531224a8a70f3980ba937b, type: 3}
   point: {fileID: 8300000, guid: eab5906ef0150ca4292263ac88fbd267, type: 3}
   fall: {fileID: 8300000, guid: 57dcc608d6352144d91319a7e2459bf3, type: 3}
+  shoot: {fileID: 8300000, guid: 3bdc125c6e7b4594098d093f63a04fa0, type: 3}
+  Kill: {fileID: 8300000, guid: f812a5fcea9c9f34e890684329a69942, type: 3}
   IsBoosting: 0
 --- !u!1 &2076812207
 GameObject:
@@ -3630,7 +3632,8 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6947033392599351164, guid: c82939514fd19f14082c6afa21abbe32, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -15,7 +15,17 @@ public class BulletScript : MonoBehaviour
         if (transform.position.x > respawnPos.x)
         {
             GameObject.Destroy(this.gameObject);
+            
         }
         transform.Translate(Vector3.right * (bulletSpeed * Time.deltaTime));
+    }
+    void OnTriggerEnter2D(Collider2D colliderInfo)
+    {
+        Debug.Log(colliderInfo.gameObject.name);
+        if (colliderInfo.CompareTag("Enemy"))
+        {
+            GameObject.Destroy(this.gameObject);
+            StaticInit.gameManager.KillEnemy(colliderInfo);
+        }
     }
 }
