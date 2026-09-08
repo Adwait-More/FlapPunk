@@ -1541,8 +1541,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Eenmy: {fileID: 2076812207}
-  addVec: {x: -2.5, y: 0.5, z: 2}
-  row: 12
+  addVec: {x: -2.5, y: 5, z: 2}
+  row: 3
   col: 3
 --- !u!4 &890165608
 Transform:
