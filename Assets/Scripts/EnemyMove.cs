@@ -16,7 +16,7 @@ public class EnemyMove : MonoBehaviour
     {
         
         GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x+1,GetComponent<BoxCollider2D>().offset.y);
-     
+      transform.position = new Vector3(transform.position.x+1,transform.position.y,transform.position.z);
          
     }
 
