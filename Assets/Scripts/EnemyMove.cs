@@ -15,12 +15,12 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         
-        GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x+1,GetComponent<BoxCollider2D>().offset.y);
-      transform.position = new Vector3(transform.position.x+1,transform.position.y,transform.position.z);
+        GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x,GetComponent<BoxCollider2D>().offset.y);
+  
          
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D
     {
         Debug.Log("Switch Script");
         if (collision.gameObject.tag == "Enemy")
