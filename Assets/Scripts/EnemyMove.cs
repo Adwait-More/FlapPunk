@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
@@ -20,7 +20,7 @@ public class EnemyMove : MonoBehaviour
          
     }
 
-    public void OnCollisionEnter2D
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Switch Script");
         if (collision.gameObject.tag == "Enemy")
@@ -38,5 +38,4 @@ public class EnemyMove : MonoBehaviour
           
     }
 }
-
 
