@@ -11,6 +11,7 @@ public  class  EnemySpawnner : MonoBehaviour
   
     void Start()
     {
+        Debug.Log("HELOO");
         transform.position = StaticInit.screenRightEdge + addVec;
     }
   public  void Spawn()
@@ -20,6 +21,7 @@ public  class  EnemySpawnner : MonoBehaviour
             for (int j = 0; j < col; j++)
             {
                 Instantiate(Eenmy,new Vector3(transform.position.x + j, transform.position.y + i, transform.position.z), transform.rotation);
+                
             }
         }
     }

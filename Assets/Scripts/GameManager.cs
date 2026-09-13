@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         audioManager.PlayEnemyKillSound();
         collisionInfo.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-       
+       Destroy(collisionInfo.gameObject);
         
     }
 

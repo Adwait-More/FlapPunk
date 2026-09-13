@@ -1,41 +1,26 @@
-
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class NeighborSensor : MonoBehaviour
 {
-    [Range(0f,1f)]
-    [SerializeField] float switchChance = 0.5f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // Keeps track of whether an enemy is currently standing in this spot
+    public bool isOccupied { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x,GetComponent<BoxCollider2D>().offset.y);
-  
-         
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Switch Script");
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.CompareTag("Enemy"))
         {
-            if (Random.value <= switchChance)
-            {
-                collision.gameObject.GetComponent<EnemyMove>().SwitchScript();
-            }
+            Debug.Log(collision.gameObject.name);
+            isOccupied = true;
         }
     }
-    
-    public void SwitchScript()
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Switch Script");
-          
+       
+        if (collision.CompareTag("Enemy"))
+        {
+            Debug.Log("OBJECT DIED");
+            isOccupied = false;
+        }
     }
 }
-

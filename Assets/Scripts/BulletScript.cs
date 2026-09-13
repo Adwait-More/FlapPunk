@@ -21,7 +21,7 @@ public class BulletScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D colliderInfo)
     {
-        Debug.Log(colliderInfo.gameObject.name);
+       
         if (colliderInfo.CompareTag("Enemy"))
         {
             GameObject.Destroy(this.gameObject);
