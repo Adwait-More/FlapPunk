@@ -18,7 +18,7 @@ public class CollisisonDetect : MonoBehaviour
         if(collision.gameObject.CompareTag("Pipe"))
         {
           
-            Debug.Log("Game Over");
+            
 stateMachine.EndGame();
 
 
