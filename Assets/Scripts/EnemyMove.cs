@@ -16,11 +16,16 @@ public class NeighborSensor : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-       
+
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("OBJECT DIED");
             isOccupied = false;
         }
+    }
+
+    public void Move(Collider2D collision)
+    {
+
     }
 }
