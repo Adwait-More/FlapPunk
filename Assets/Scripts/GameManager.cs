@@ -77,10 +77,9 @@ public class GameManager : MonoBehaviour
          foreach (GameObject pipe in spawnner.pipeList) 
              pipe.SetActive(false);
         // Cam.transform.position=new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x-2.5f,0,-2);   
-        PlayerTransform.position =  Vector3.MoveTowards(PlayerTransform.position, new Vector3(-1.5f,0,0),1f);
-        //
-        eSpawner.Spawn();
         
+        eSpawner.StartInvasion();
+
     }
 
    public void KillEnemy(Collider2D collisionInfo)

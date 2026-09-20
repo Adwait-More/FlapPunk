@@ -56,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
             {
              transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
            }
+            else if (transform.position.x == targetPos.x)
+            {
+                stateMachine.InvasionModeOn();
+            }
 
             if(Input.touchCount ==0)
             currentSpeed -= currentSpeed;
