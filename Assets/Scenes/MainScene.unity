@@ -223,6 +223,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 0.03
+--- !u!1 &151160887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3070030079034523127, guid: 3ae5b45e2db1589479241dea09f2b493, type: 3}
+  m_PrefabInstance: {fileID: 7573178152008062722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &151592446
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417519472}
   - component: {fileID: 417519471}
+  - component: {fileID: 417519473}
   m_Layer: 0
   m_Name: StaticInit
   m_TagString: Untagged
@@ -880,6 +886,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   L_edgeSet: {x: 0, y: 0, z: 0}
   R_edgeSet: {x: 1, y: 0, z: 0}
+  T_edgeSet: {x: 0.5, y: 1, z: 0}
+  B_edgeSet: {x: 0.5, y: 0, z: 0}
 --- !u!4 &417519472
 Transform:
   m_ObjectHideFlags: 0
@@ -895,6 +903,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417519473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417519470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e632ea09530794faec148c9b517dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &423489305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,12 +1555,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890165606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d72b468f732f9814ca88325fd68103ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Eenmy: {fileID: 2076812207}
+  Enemy: {fileID: 151160887}
+  spawnRate: 5
+  spawnCount: 5
   addVec: {x: -2.5, y: 5, z: 2}
   row: 3
   col: 3
@@ -2991,11 +3013,6 @@ MonoBehaviour:
   shoot: {fileID: 8300000, guid: 3bdc125c6e7b4594098d093f63a04fa0, type: 3}
   Kill: {fileID: 8300000, guid: f812a5fcea9c9f34e890684329a69942, type: 3}
   IsBoosting: 0
---- !u!1 &2076812207 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3070030079034523127, guid: 3ae5b45e2db1589479241dea09f2b493, type: 3}
-  m_PrefabInstance: {fileID: 7573178152008062722}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1312685098142954165
 PrefabInstance:
   m_ObjectHideFlags: 0

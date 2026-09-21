@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float startingSpeed = 0f;
     public float currentSpeed;
     public float decleration = 10f;
+    public float MoveSpeed=5;
     bool _hasTouched = false;
     [SerializeField]private GameManager gameManager;
     [SerializeField]private StateMachine stateMachine;
@@ -21,9 +22,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        transform.position += Vector3.up * currentSpeed * Time.deltaTime;
-        if (stateMachine.currentState != GameState.Booster)
+        
+        if (stateMachine.currentState == GameState.Playing)
         {
+            transform.position += Vector3.up * currentSpeed * Time.deltaTime;
             //Normal flappy bird
             if (stateMachine.currentState == GameState.GameOver)
             {
@@ -47,26 +49,42 @@ public class PlayerMovement : MonoBehaviour
                     Jump(); 
                 }
             }
+            //Check if player is OutOfBounds
+            if (transform.position.y > 5f || transform.position.y < -5f)
+            {
+                stateMachine.EndGame();
+            }
         }
-        else
+        else if(stateMachine.currentState == GameState.Booster)
         {
-            if (transform.position.x != targetPos.x)
+            if (Vector3.Distance(transform.position, targetPos) >= 0.1f  )
             {
              transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
            }
-            else if (Vector3.Distance(transform.position, targetPos) < 0.1f)
+            else 
             {
+                transform.position += Vector3.up * currentSpeed * Time.deltaTime;
                 stateMachine.SInvasionModeOn();
             }
 
             if(Input.touchCount ==0)
             currentSpeed -= currentSpeed;
         }
-        //Check if player is OutOfBounds
-        if (transform.position.y > 5f || transform.position.y < -5f)
+        else if (stateMachine.currentState == GameState.Invading)
         {
-            stateMachine.EndGame();
+            transform.position += Vector3.up * currentSpeed * Time.deltaTime;
+            if (transform.position.y > StaticInit.screenTopEdge.y)
+            {
+                currentSpeed = -MoveSpeed;
+               
+            }
+            if (transform.position.y < StaticInit.screenBottomEdge.y)
+            {
+                currentSpeed = MoveSpeed;
+                
+            } 
         }
+      
     }
     
     public void Jump()
@@ -84,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void GO_UP()
     {
-        currentSpeed = 5;
+        currentSpeed = MoveSpeed;
 
     }
 
@@ -95,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void GO_DOWN()
     {
-        currentSpeed = -5;
+        currentSpeed = -MoveSpeed;
     }
 }
 
