@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -43,11 +44,8 @@ public class PlayerMovement : MonoBehaviour
                         stateMachine.StartGame();
                         _hasTouched = true;
                     }
-
                     Jump(); 
-
                 }
-
             }
         }
         else
@@ -56,9 +54,9 @@ public class PlayerMovement : MonoBehaviour
             {
              transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
            }
-            else if (transform.position.x == targetPos.x)
+            else if (Vector3.Distance(transform.position, targetPos) < 0.1f)
             {
-                stateMachine.InvasionModeOn();
+                stateMachine.SInvasionModeOn();
             }
 
             if(Input.touchCount ==0)

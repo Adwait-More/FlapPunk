@@ -72,14 +72,15 @@ public class GameManager : MonoBehaviour
 
     public void BoosterModeOn()
     {
-        
          Buttons.SetActive(true);
          foreach (GameObject pipe in spawnner.pipeList) 
              pipe.SetActive(false);
         // Cam.transform.position=new Vector3(Camera.main.ViewportToWorldPoint(new Vector3(1, 0, 0)).x-2.5f,0,-2);   
-        
-        eSpawner.StartInvasion();
+    }
 
+    public void InvasionModeOn()
+    {
+        eSpawner.StartInvasion();
     }
 
    public void KillEnemy(Collider2D collisionInfo)

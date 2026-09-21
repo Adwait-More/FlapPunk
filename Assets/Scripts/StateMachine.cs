@@ -32,8 +32,9 @@ public class StateMachine : MonoBehaviour
          currentState=GameState.GameOver;
     }
 
-    public void InvasionModeOn()
+    public void SInvasionModeOn()
     {
         currentState = GameState.Invading;
+        gameManager.InvasionModeOn();
     }
 }

@@ -10,6 +10,18 @@ public class PipeSpawnner : MonoBehaviour
      float upperLimit = 3.53f, lowerLimit = -3.19f;
      [SerializeField] private int spawnSize=5; 
      [SerializeField] private   int pipeDistance = 5;
+     
+     
+     
+     
+     
+
+
+
+
+
+
+
      [SerializeField] GameObject pipePrefab;
     [SerializeField]   float pipeSpeed = 2f;
     [SerializeField] public List<GameObject> pipeList = new List<GameObject>();

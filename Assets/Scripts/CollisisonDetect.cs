@@ -17,11 +17,7 @@ public class CollisisonDetect : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pipe"))
         {
-          
-            
-stateMachine.EndGame();
-
-
+            stateMachine.EndGame();
         }
         else if(collision.gameObject.CompareTag("ScoreCollider"))
         {
