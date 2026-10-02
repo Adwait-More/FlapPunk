@@ -27,6 +27,7 @@ public class CollisisonDetect : MonoBehaviour
                 counter=1;
             }
             score++;
+            
             gameManager.GainPoint();
             Debug.Log("Score: " + score);
             

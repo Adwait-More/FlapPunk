@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
+    public static StateMachine State_Machine;
     public GameState currentState;
     private GameManager gameManager;
     
