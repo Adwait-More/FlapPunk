@@ -15,7 +15,7 @@ public class CollisisonDetect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     
     {
-        if(collision.gameObject.CompareTag("Pipe"))
+        if(collision.gameObject.CompareTag("Pipe")||collision.gameObject.CompareTag("Enemy"))
         {
             stateMachine.EndGame();
         }

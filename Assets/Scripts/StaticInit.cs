@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class StaticInit : MonoBehaviour
 {
-  public static GameManager  gameManager;
-  public static AudioManager  AudioManager;
-  public static Vector3 screenLeftEdge;
+  [SerializeField]
+   static public GameManager  gameManager;
+   static public AudioManager  AudioManager;
+  static public  Vector3 screenLeftEdge;
   static public Vector3 screenRightEdge;
   static public Vector3 screenTopEdge;
   static public Vector3 screenBottomEdge;
@@ -15,12 +16,12 @@ public class StaticInit : MonoBehaviour
   public Vector3 B_edgeSet;
   private void Awake()
   {
-    AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-    gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    screenLeftEdge=Camera.main.ViewportToWorldPoint(L_edgeSet);
-    screenRightEdge=Camera.main.ViewportToWorldPoint(R_edgeSet);
-    screenTopEdge=Camera.main.ViewportToWorldPoint(T_edgeSet);
-    screenBottomEdge=Camera.main.ViewportToWorldPoint(B_edgeSet);
+      gameManager=GameObject.Find("GameManager").GetComponent<GameManager>();
+      AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+      screenLeftEdge=Camera.main.ViewportToWorldPoint(L_edgeSet);
+      screenRightEdge=Camera.main.ViewportToWorldPoint(R_edgeSet);
+      screenTopEdge=Camera.main.ViewportToWorldPoint(T_edgeSet);
+      screenBottomEdge=Camera.main.ViewportToWorldPoint(B_edgeSet);
     
   }
 }

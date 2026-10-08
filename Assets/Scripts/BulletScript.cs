@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+   
     [SerializeField] private float  bulletSpeed;
    public  static Vector3 respawnPos;
     void Awake()
@@ -25,7 +26,7 @@ public class BulletScript : MonoBehaviour
         if (colliderInfo.CompareTag("Enemy"))
         {
             GameObject.Destroy(this.gameObject);
-            StaticInit.gameManager.KillEnemy(colliderInfo);
+           StaticInit.gameManager.KillEnemy(colliderInfo);
         }
     }
 }
