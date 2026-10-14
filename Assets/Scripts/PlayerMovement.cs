@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             //Cecks the total number of touches on the screen at the same time 
             if (Input.touchCount > 0)//We use this to prevent the next if statement from crashing due to an index out of range execption
             {
-            //Checks for the first finger to touch the screen and if the finger jsut made contact with the screen
+                //Checks for the first finger to touch the screen and if the finger jsut made contact with the screen
                 if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     //logic for the first touch
@@ -58,9 +58,9 @@ public class PlayerMovement : MonoBehaviour
         else if(stateMachine.currentState == GameState.Booster)
         {
             if (Vector3.Distance(transform.position, targetPos) >= 0.1f  )
-            {
-             transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
-           }
+            { 
+                transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
+            }
             else 
             {
                 transform.position += Vector3.up * currentSpeed * Time.deltaTime;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if(Input.touchCount ==0)
-            currentSpeed -= currentSpeed;
+             currentSpeed -= currentSpeed;
         }
         else if (stateMachine.currentState == GameState.Invading)
         {
