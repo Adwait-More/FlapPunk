@@ -27,11 +27,8 @@ public class EnemySpawnner : MonoBehaviour
         int counter = 0;
         while (counter < spawnCount)
         {
-            
             // 1. Calculate the spawn position slightly off-screen to the right
-           
             Vector3 spawnPosition = new Vector3(StaticInit.screenRightEdge.x + 1f, Random.Range(-5f,5f), 0);
-
             // 2. Spawn the enemy
             Instantiate(Enemy, spawnPosition, Quaternion.identity);
             counter++;

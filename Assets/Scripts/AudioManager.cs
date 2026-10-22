@@ -27,21 +27,18 @@ public class AudioManager : MonoBehaviour
     {
        AudioSource.PlayClipAtPoint(jump, Camera.main.transform.position);
     }
-
   public void PlayPointSound()
     {
        AudioSource.PlayClipAtPoint(point, Camera.main.transform.position);
     }
   public void PlayFallSound()
-        {
-         AudioSource.PlayClipAtPoint(fall, Camera.main.transform.position);
-        }
-
+  { 
+      AudioSource.PlayClipAtPoint(fall, Camera.main.transform.position);
+  }
   public void PlayEnemyKillSound()
   {
         AudioSource.PlayClipAtPoint(Kill,Camera.main.transform.position);
   }
-
   public void PlayShootSound()
   {
       AudioSource.PlayClipAtPoint(shoot,Camera.main.transform.position);

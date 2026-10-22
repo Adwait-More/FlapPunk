@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
-{
+{ 
     public GameObject bulletPrefab;
     public Vector3 spawnPos;
    public void ShootBullet()
