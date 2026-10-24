@@ -3297,9 +3297,17 @@ PrefabInstance:
       value: Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 3160012593701427099, guid: c82939514fd19f14082c6afa21abbe32, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 993751320}
+    - target: {fileID: 3160012593701427099, guid: c82939514fd19f14082c6afa21abbe32, type: 3}
       propertyPath: stateMachine
       value: 
       objectReference: {fileID: 345406050}
+    - target: {fileID: 3160012593701427099, guid: c82939514fd19f14082c6afa21abbe32, type: 3}
+      propertyPath: EnemyBulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4702520334099846542, guid: c82939514fd19f14082c6afa21abbe32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.725
@@ -3361,9 +3369,17 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 607710009}
+    - target: {fileID: 1450473236517840780, guid: 3ae5b45e2db1589479241dea09f2b493, type: 3}
+      propertyPath: BulletDespawnRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3070030079034523127, guid: 3ae5b45e2db1589479241dea09f2b493, type: 3}
       propertyPath: m_Name
       value: Enemy_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070030079034523127, guid: 3ae5b45e2db1589479241dea09f2b493, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434160381578127626, guid: 3ae5b45e2db1589479241dea09f2b493, type: 3}
       propertyPath: m_LocalPosition.x

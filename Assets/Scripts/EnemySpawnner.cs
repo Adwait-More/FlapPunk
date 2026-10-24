@@ -9,10 +9,13 @@ public class EnemySpawnner : MonoBehaviour
     [SerializeField] private Vector3 addVec;
     [SerializeField] private int row;
     [SerializeField] private int col;
+
+    private Vector3 spawnPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
     {
+        
         Debug.Log("HELOO");
         transform.position = StaticInit.screenRightEdge + addVec;
     }
@@ -28,9 +31,10 @@ public class EnemySpawnner : MonoBehaviour
         while (counter < spawnCount)
         {
             // 1. Calculate the spawn position slightly off-screen to the right
-            Vector3 spawnPosition = new Vector3(StaticInit.screenRightEdge.x + 1f, Random.Range(-5f,5f), 0);
+            spawnPosition = new Vector3(StaticInit.screenRightEdge.x + 1f, Random.Range(-4f,4f), 0);
             // 2. Spawn the enemy
             Instantiate(Enemy, spawnPosition, Quaternion.identity);
+            Enemy.SetActive(true);
             counter++;
             // 3. Pause the loop 
             yield return new WaitForSeconds(spawnRate);

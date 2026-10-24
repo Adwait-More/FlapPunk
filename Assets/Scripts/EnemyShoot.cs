@@ -7,15 +7,13 @@ public class EnemyShoot : MonoBehaviour
     public Transform PlayerPos;
     [SerializeField] private float bulletSpeed;
     public static Vector3 respawnPos;
-    public float BulletspawnRate;
-
+    public float BulletspawnRate=0;
+    public float BulletDespawnRate;
+   
     void Start()
     {
+        Vector3 spawnPosition = new Vector3(StaticInit.screenRightEdge.x + 1f, Random.Range(-5f,5f), 0);
         StartCoroutine(SpawnEnemyBulletRoutine());
-    }
-    void Awake()
-    {
-        respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(-1f, 0.5f, 0));
     }
     // Update is called once per frame
     public GameObject bulletPrefab;
@@ -26,21 +24,21 @@ public class EnemyShoot : MonoBehaviour
         spawnPos = new Vector3(transform.position.x-0.2f, transform.position.y, transform.position.z);   
         GameObject bullet= Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
         bullet.GetComponent<BulletScript>().ISEnemyBullet = true;
-       
+        Destroy(bullet, BulletDespawnRate);
         bullet.SetActive(true);
     }
     private IEnumerator SpawnEnemyBulletRoutine()
     {
       while(true)
         {
-            // 1. Calculate the spawn position slightly off-screen to the right
-            Vector3 spawnPosition = new Vector3(StaticInit.screenRightEdge.x + 1f, Random.Range(-5f,5f), 0);
             // 2. Spawn the enemy
             ShootEnemyBullet();
             // 3. Pause the loop 
-            yield return new WaitForSeconds(BulletspawnRate);
+            yield return new WaitForSeconds(BulletspawnRate+Random.Range(3,5f));
         }
     }
+
+   
 }
 
 

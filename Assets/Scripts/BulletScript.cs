@@ -1,4 +1,5 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -6,8 +7,9 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private float  bulletSpeed;
     public StateMachine stateMachine;
    public  static Vector3 respawnPos;
-   public Vector3 PlyerPos;
+   public GameObject Player;
    public bool ISEnemyBullet;
+   public float EnemyBulletSpeed;
     void Awake()
     {
         respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.5f, 0));
@@ -30,7 +32,8 @@ public class BulletScript : MonoBehaviour
             {
                 GameObject.Destroy(this.gameObject);
             }
-            transform.Translate(PlyerPos * (bulletSpeed * Time.deltaTime));
+           transform.position=Vector3.MoveTowards(transform.position, Player.transform.position, EnemyBulletSpeed * Time.deltaTime);
+            
         }
     }
     void OnTriggerEnter2D(Collider2D colliderInfo)
