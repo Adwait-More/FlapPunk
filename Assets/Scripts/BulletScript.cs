@@ -1,4 +1,5 @@
 
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,12 +8,17 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private float  bulletSpeed;
     public StateMachine stateMachine;
    public  static Vector3 respawnPos;
+   public Vector3 BulltetFinalPos;
    public GameObject Player;
    public bool ISEnemyBullet;
    public float EnemyBulletSpeed;
+   public float waitTime;
+   
     void Awake()
     {
         respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.5f, 0));
+        StartCoroutine(ClacPos());
+        
     }
     // Update is called once per frame
     void Update()
@@ -32,7 +38,7 @@ public class BulletScript : MonoBehaviour
             {
                 GameObject.Destroy(this.gameObject);
             }
-           transform.position=Vector3.MoveTowards(transform.position, Player.transform.position, EnemyBulletSpeed * Time.deltaTime);
+           transform.position=Vector3.MoveTowards(transform.position, BulltetFinalPos, EnemyBulletSpeed * Time.deltaTime);
             
         }
     }
@@ -49,4 +55,17 @@ public class BulletScript : MonoBehaviour
             stateMachine.EndGame();
         }
     }
-}
+
+    private IEnumerator ClacPos()
+    {
+        while (true)
+        {
+            BulltetFinalPos=Player.transform.position;
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+    
+
+
+} 
+
