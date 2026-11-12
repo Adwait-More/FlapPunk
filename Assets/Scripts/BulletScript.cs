@@ -38,7 +38,7 @@ public class BulletScript : MonoBehaviour
             {
                 GameObject.Destroy(this.gameObject);
             }
-           transform.position=Vector3.MoveTowards(transform.position, BulltetFinalPos, EnemyBulletSpeed * Time.deltaTime);
+           transform.position=Vector3.MoveTowards(transform.position, BulltetFinalPos+ transform.position.x, EnemyBulletSpeed * Time.deltaTime);
             
         }
     }
