@@ -13,7 +13,7 @@ public class UiManager : MonoBehaviour
 
     public void UpdateScore()
     {
-        scoreText.text = "SCORE:" + scoreCollisison.score.ToString();
+        scoreText.text = "SCORE:" + StaticInit.score.ToString();
     }
     
 }

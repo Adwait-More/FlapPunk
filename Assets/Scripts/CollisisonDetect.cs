@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class CollisisonDetect : MonoBehaviour
 {
-    
-    public int score = 0;
- 
     [SerializeField] GameManager gameManager;
     [SerializeField] StateMachine stateMachine;
     private int counter;
@@ -21,15 +18,16 @@ public class CollisisonDetect : MonoBehaviour
         }
         else if(collision.gameObject.CompareTag("ScoreCollider"))
         {
-            if (score == 10)
+            if (StaticInit.score == 10)
             {
                 stateMachine.BoosterModeOn();
                 counter=1;
             }
-            score++;
+
+            StaticInit.score++;
             
             gameManager.GainPoint();
-            Debug.Log("Score: " + score);
+            Debug.Log("Score: " + StaticInit.score);
             
         }
     }

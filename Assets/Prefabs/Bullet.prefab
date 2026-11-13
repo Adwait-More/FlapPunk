@@ -108,8 +108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   bulletSpeed: 7
-  PlyerPos: {x: 0, y: 0, z: 0}
+  stateMachine: {fileID: 0}
+  Player: {fileID: 0}
   ISEnemyBullet: 0
+  EnemyBulletSpeed: -3
+  waitTime: 0.2
 --- !u!50 &4033316452711372762
 Rigidbody2D:
   serializedVersion: 5

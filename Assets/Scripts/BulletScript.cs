@@ -8,7 +8,6 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private float  bulletSpeed;
     public StateMachine stateMachine;
    public  static Vector3 respawnPos;
-   public Vector3 BulltetFinalPos;
    public GameObject Player;
    public bool ISEnemyBullet;
    public float EnemyBulletSpeed;
@@ -17,7 +16,7 @@ public class BulletScript : MonoBehaviour
     void Awake()
     {
         respawnPos = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0.5f, 0));
-        StartCoroutine(ClacPos());
+
         
     }
     // Update is called once per frame
@@ -38,8 +37,9 @@ public class BulletScript : MonoBehaviour
             {
                 GameObject.Destroy(this.gameObject);
             }
-           transform.position=Vector3.MoveTowards(transform.position, BulltetFinalPos+ transform.position.x, EnemyBulletSpeed * Time.deltaTime);
-            
+
+            transform.Translate(Vector3.right * (EnemyBulletSpeed * Time.deltaTime));
+
         }
     }
     void OnTriggerEnter2D(Collider2D colliderInfo)
@@ -56,14 +56,7 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    private IEnumerator ClacPos()
-    {
-        while (true)
-        {
-            BulltetFinalPos=Player.transform.position;
-            yield return new WaitForSeconds(waitTime);
-        }
-    }
+
     
 
 
