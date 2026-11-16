@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip fall;
     public AudioClip shoot;
     [SerializeField] private AudioClip Kill;
-   //Static Manager 
+   //Static Managers
+   
     public bool IsBoosting;
 
     void update()
