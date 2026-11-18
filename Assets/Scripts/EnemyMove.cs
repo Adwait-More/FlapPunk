@@ -5,7 +5,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] int moveSpeed;
     void Update()
     {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime*1);
         if (transform.position.x < StaticInit.screenLeftEdge.x)
         {
             if (StaticInit.score > 1)
