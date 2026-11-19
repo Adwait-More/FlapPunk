@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform PlayerTransform;
     private void Start()
     {
-        
+        //Set Framrate to 120
         Application.targetFrameRate = 120;
 } 
 
